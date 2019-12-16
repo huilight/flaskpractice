@@ -1,0 +1,9 @@
+{% macro form_field(fields) %}
+{{ fields.label }}<br>
+{{ fields(**kwargs) }} <br>
+{% if fields.errors %}
+    {% for error in field.errors %}
+        <small calss="error">{{ error }}</small>
+    {% endfor %}
+{% endif %}
+{% endmacro %}
