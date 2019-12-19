@@ -12,11 +12,6 @@ app.config['SECRET_KEY'] = 'dsf2o3o9KJFO#0f02f'
 db = SQLAlchemy(app)
 
 
-class Note(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    body = db.Column(db.Text)
-
-
 @app.route('/new', methods=['GET', 'POST'])
 def new_note():
     form = NewNoteForm()
