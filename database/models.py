@@ -1,5 +1,3 @@
-from app import db
-
 class Author(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(70), unique=True)
@@ -12,8 +10,3 @@ class Article(db.Model):
     title = db.Column(db.String(70), index=True)
     body = db.Column(db.Text)
     author_id = db.Column(db.Integer, db.ForeignKey('author.id'))
-
-
-class Note(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    body = db.Column(db.Text)
