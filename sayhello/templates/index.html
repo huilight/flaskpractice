@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}
+SayHello
+{% endblock %}
+
+{% block content %}
+
+<form action="" method="POST">
+    {{ form.csrf_token }}
+    {{ form.name.label }}
+    {{ form.name }}
+
+    {{ form.body.label }}
+    {{ form.body }}
+</form>
+
+<h5>{{ messages|length }} messages
+    <small class="float-right">
+        <a href="#bottom" title="Go Bottom">&darr;</a>
+    </small>
+</h5>
+
+<div class="list-group">
+    {% for message in messages %}
+        <a class="list-group-item list-group-item-action flex-column">
+            <div>
+                <h5>{{ message.name }}
+                    <small>#{{loop.revindx}}</small>
+                </h5>
+                <small>
+                    {{ message.timestamp.strftime('%Y/%m/%d %H:%M')}}
+                </small>
+            </div>
+        </a>
+    {% endfor %}
+</div>
+
+
+{% endblock %}
