@@ -5,9 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{% block title %}{% endblock %}</title>
+
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
+    {{ bootstrap.load_css() }}
+
+    <style>
+    body{
+        margin: 20px;
+    }
+    </style>
 </head>
 <body>
 {% block content %}
 {% endblock %}
+
+
+<script type="text/javascript" src="{{ url_for('static', filename='js/jquery-3.2.1.slim.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+{{ moment.include_moment(local_js=url_for('static', filename='js/moment-with-locales.min.js')) }}
 </body>
 </html>
